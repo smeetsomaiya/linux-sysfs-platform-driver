@@ -18,3 +18,11 @@ b. Run the script for sysfs
 	chmod +x ./run_p2
 	./run_p2 <num_devices>
 For example: ./run_p2 2
+
+c. Run the userspace program
+	./hcsr_tester 1 0 1 3 5000
+
+The format is: {./hcsr_tester num_devices io_trig_pin io_echo_pin num_samples sampling_period}
+
+Another example: For 2 devices -
+	./hcsr_tester 2 0 1 3 5000 19 6 3 5000
