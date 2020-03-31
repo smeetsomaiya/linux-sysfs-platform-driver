@@ -1,0 +1,20 @@
+Steps to install and run -
+
+Note: You may need to edit some compile paths and/or the galileo ssh IP depending on your configuration. The Makefile is highly configurable, and you only need to change the values of certain variables.
+
+1.To compile the hcsr driver and userspace program
+
+Cross compile for galileo - make galileo
+
+2. Copy over to galileo using - make scp
+
+3. Run on galileo
+a. Install the module -
+	chmod +x ./ins_p2
+	./ins_p2 <num_devices>
+For example: ./ins_p2 2
+
+b. Run the script for sysfs
+	chmod +x ./run_p2
+	./run_p2 <num_devices>
+For example: ./run_p2 2
