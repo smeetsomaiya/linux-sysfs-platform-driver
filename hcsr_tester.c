@@ -37,7 +37,7 @@ void* thread_function(void* data) {
 	char name[15];
 	unsigned long pins_data[2];
 	memset(name, '\0', sizeof name);
-	sprintf(name,"/dev/hcsr_%d",data_struct->dev_id);
+	snprintf(name, 15, "/dev/hcsr_%d",data_struct->dev_id);
 	
 	data_struct->fd = open(name, O_RDWR);
 	if(data_struct->fd < 0) {
@@ -45,7 +45,7 @@ void* thread_function(void* data) {
 		return NULL;
 	}
 	memset(name, '\0', sizeof name);
-	sprintf(name,"hcsr_%d",data_struct->dev_id);
+	snprintf(name, 15, "hcsr_%d",data_struct->dev_id);
 	
 	pins_data[0] = data_struct->trigger_pin;//rand() % 19;
 	pins_data[1] = data_struct->echo_pin;//rand() % 19;
@@ -124,6 +124,8 @@ int main(int argv, char** argc) {
 	}
 	for(i = 0; i < MAX_DEVICES; i++) {
 		pthread_join(threads[i], NULL);
-	}	
+	}
+	free(data_struct);
+	free(threads);
 	return 0;
 }
