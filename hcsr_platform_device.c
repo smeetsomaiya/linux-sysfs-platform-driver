@@ -31,6 +31,8 @@ static int p_device_init(void)
 		memset(name, 0, 10);
 		sprintf(name,"hcsr_%d",i);
 		kbuf_devp[i].plf_dev.name = name; //Name for bus matching
+		kbuf_devp[i].plf_dev.driver_override = DRIVER_NAME;
+		
 		kbuf_devp[i].misdev.name = name; //Name of miscdevice
  		kbuf_devp[i].name = name; //Name for our reference
 		kbuf_devp[i].dev_no = i;

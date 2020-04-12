@@ -8,20 +8,6 @@
 #include <linux/platform_device.h>
 #include "hcsr_platform_device.h"
 
-
-static const struct platform_device_id P_id_table[] = {
-         { "hcsr_0", -1 },
-         { "hcsr_1", 0 },
-         { "hcsr_2", 0 },
-         { "hcsr_3", 0 },
-         { "hcsr_4", 0 },
-         { "hcsr_5", 0 },
-         { "hcsr_6", 0 },
-         { "hcsr_7", 0 },
-         { "hcsr_8", 0 },
-         { "hcsr_9", 0 },
-};
-
 static inline uint64_t __attribute__((__always_inline__))
 rdtsc(void)
 {
@@ -708,7 +694,6 @@ static struct platform_driver P_driver = {
 	},
 	.probe		= P_driver_probe,
 	.remove		= P_driver_remove,
-	.id_table	= P_id_table,
 };
 
 module_platform_driver(P_driver);
